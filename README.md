@@ -9,13 +9,12 @@
 
 ## Tests progress..,
 
-PAS
-
 Tests\Unit\ReplyTest
 
-✓ a reply has an owner
+  ✓ a reply has an owner
 
    PASS  Tests\Unit\ThreadTest
+   
   ✓ a thread has replies
   ✓ a thread has a creator
   ✓ a thread can add a reply
@@ -23,15 +22,18 @@ Tests\Unit\ReplyTest
   ✓ a thread can make a string path
 
    PASS  Tests\Feature\CreateThreadsTest
+   
   ✓ guests cant create threads
   ✓ guests cant see the create thread page
   ✓ an authenticated user can create new forum threads
 
    PASS  Tests\Feature\ParticipateInForumTest
+   
   ✓ un authenticated user cant participate in forum
   ✓ an authenticated user can participate in forum
 
    PASS  Tests\Feature\ThreadsTest
+   
   ✓ a user can view threads
   ✓ a user can view a single thread
   ✓ a user can view a reply associated with a thread
