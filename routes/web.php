@@ -23,8 +23,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/threads/{category}/{thread}', [ThreadController::class,'show']);
 Route::resource('threads', ThreadController::class);
 
-Route::post('/threads/{thread}/replies', [ReplyController::class,'store']);
+Route::post('/threads/{category}/{thread}/replies', [ReplyController::class,'store']);
 
 require __DIR__.'/auth.php';

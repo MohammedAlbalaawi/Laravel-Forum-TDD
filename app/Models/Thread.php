@@ -12,7 +12,7 @@ class Thread extends Model
     protected $guarded=[];
 
     public function path(){
-        return '/threads/' . $this->id;
+        return '/threads/' . $this->category->slug . '/' .$this->id;
     }
 
     public function replies(){
@@ -21,6 +21,10 @@ class Thread extends Model
 
     public function creator(){
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 
     public function addReply($reply){

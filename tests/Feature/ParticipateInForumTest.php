@@ -18,7 +18,7 @@ class ParticipateInForumTest extends TestCase
         $this->withoutExceptionHandling();
         $this->expectException('Illuminate\Auth\AuthenticationException');
 
-        $this->post('/threads/1/replies', []);
+        $this->post('/threads/slug/1/replies', []);
 
         // OR WE CAN USE
         // $this->post('/threads/1/replies', [])
@@ -35,7 +35,7 @@ class ParticipateInForumTest extends TestCase
         $thread = Thread::factory()->create();
 
         // A reply that user may write to a thread
-        $reply = Reply::factory()->make();
+        $reply = Reply::factory()->create();
         $this->post($thread->path() . '/replies', $reply->toArray());
 
         // A reply should visible in the page

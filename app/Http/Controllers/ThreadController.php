@@ -26,6 +26,7 @@ class ThreadController extends Controller
     {
         $thread = Thread::create([
             'user_id' => auth()->id(),
+            'category_id' => $request->category_id,
             'title' => $request->title,
             'body' => $request->body
         ]);
@@ -33,7 +34,7 @@ class ThreadController extends Controller
         return redirect($thread->path());
     }
 
-    public function show(Thread $thread)
+    public function show($categoryId, Thread $thread)
     {
         return view('threads.show', compact('thread'));
     }
