@@ -9,34 +9,34 @@
 
 ## Tests progress..,
 
-Tests\Unit\ReplyTest
+   PASS  Tests\Unit\ReplyTest
 
   ✓ a reply has an owner
 
    PASS  Tests\Unit\ThreadTest
    
   ✓ a thread has replies<br/>
-  ✓ a thread has a creator
-  ✓ a thread can add a reply
-  ✓ a thread belongs to a category
-  ✓ a thread can make a string path
+  ✓ a thread has a creator<br/>
+  ✓ a thread can add a reply<br/>
+  ✓ a thread belongs to a category<br/>
+  ✓ a thread can make a string path<br/>
 
    PASS  Tests\Feature\CreateThreadsTest
    
-  ✓ guests cant create threads
-  ✓ guests cant see the create thread page
-  ✓ an authenticated user can create new forum threads
+  ✓ guests cant create threads<br/>
+  ✓ guests cant see the create thread page<br/>
+  ✓ an authenticated user can create new forum threads<br/>
 
    PASS  Tests\Feature\ParticipateInForumTest
    
-  ✓ un authenticated user cant participate in forum
-  ✓ an authenticated user can participate in forum
+  ✓ un authenticated user cant participate in forum<br/>
+  ✓ an authenticated user can participate in forum<br/>
 
    PASS  Tests\Feature\ThreadsTest
    
-  ✓ a user can view threads
-  ✓ a user can view a single thread
-  ✓ a user can view a reply associated with a thread
+  ✓ a user can view threads<br/>
+  ✓ a user can view a single thread<br/>
+  ✓ a user can view a reply associated with a thread<br/>
 
 ## License
 
