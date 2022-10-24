@@ -13,13 +13,28 @@ class ThreadTest extends TestCase
 
     use RefreshDatabase;
 
-    public function test_a_thread_has_replies(){
-        $thread = Thread::factory()->create();
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $thread->replies);
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->thread = Thread::factory()->create();
+    }
+
+    public function test_a_thread_has_replies()
+    {
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->thread->replies);
     }
     public function test_a_thread_has_a_creator()
     {
-        $reply = Thread::factory()->create();
-        $this->assertInstanceOf(User::class, $reply->creator);
+        $this->assertInstanceOf(User::class, $this->thread->creator);
+    }
+
+    public function test_a_thread_can_add_a_reply()
+    {
+        $this->thread->addReply([
+            'body' => 'foo',
+            'user_id' => 1
+        ]);
+
+        $this->assertCount(1, $this->thread->replies);
     }
 }

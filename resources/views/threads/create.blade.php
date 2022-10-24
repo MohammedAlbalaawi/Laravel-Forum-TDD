@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -15,37 +14,21 @@
 </head>
 
 <body>
-@include('layouts/main')
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
-
-                <article>
-
-                    <h4 class=" bg-secondary p-2 text-white">
-                        <a href="" class="text-warning">{{ $thread->creator->name }}</a>
-                        posted {{ $thread->title }}
-                    </h4>
-                    <div class="body bg-gray-100  p-2">{{ $thread->body }}</div>
-                </article>
-
-                @foreach($thread->replies as $reply)
-                    @include('threads.reply')
-                @endforeach
-            </div>
-
-            @if(auth()->check())
-            <div class="p-6 bg-white border-b border-gray-200">
-                <form action="{{$thread->path() . '/replies'}}" method="post">
+                <form method="post" action="{{ route('threads.store')}}">
                     @csrf
                     <div class="form-group">
-                        <textarea name="body" id="body" rows="5" placeholder="Have something to say?" class="form-control"></textarea>
+                        <input type="text" class="form-control" placeholder="Title" name="title">
                     </div>
-                    <button type="submit" class="btn btn-primary text-dark">Post</button>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="content" name="body"></textarea>
+                    </div>
+                    <button class="btn btn-primary text-dark" type="submit">publish</button>
                 </form>
             </div>
-                @endif
         </div>
     </div>
 </div>
