@@ -15,7 +15,7 @@ Tests\Unit\ReplyTest
 
    PASS  Tests\Unit\ThreadTest
    
-  ✓ a thread has replies
+  ✓ a thread has replies<br/>
   ✓ a thread has a creator
   ✓ a thread can add a reply
   ✓ a thread belongs to a category
