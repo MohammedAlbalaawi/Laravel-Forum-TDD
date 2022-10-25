@@ -10,4 +10,13 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    public function threads(){
+        return $this->hasMany(Thread::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Thread;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,14 @@ class ThreadController extends Controller
         $this->middleware('auth')->except(['index','show']);
     }
 
-    public function index()
+    public function index(Category $category)
     {
-        $threads = Thread::all();
+        if($category->exists){
+            $threads = $category->threads()->get();
+        }else{
+            $threads = Thread::all();
+        }
+
         return view('threads.index',compact('threads'));
     }
 
@@ -24,6 +30,12 @@ class ThreadController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
         $thread = Thread::create([
             'user_id' => auth()->id(),
             'category_id' => $request->category_id,

@@ -13,7 +13,7 @@ class ParticipateInForumTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_un_authenticated_user_cant_participate_in_forum()
+    public function test_un_authenticated_user_cant_reply_in_forum()
     {
         $this->withoutExceptionHandling();
         $this->expectException('Illuminate\Auth\AuthenticationException');
@@ -25,7 +25,7 @@ class ParticipateInForumTest extends TestCase
         //        ->assertRedirect('/login');
 
     }
-    public function test_an_authenticated_user_can_participate_in_forum()
+    public function test_an_authenticated_user_can_reply_in_forum()
     {
         //Authenticated user
         $user = User::factory()->create();
@@ -41,5 +41,17 @@ class ParticipateInForumTest extends TestCase
         // A reply should visible in the page
         $this->get($thread->path())
             ->assertSee($reply->body);
+    }
+
+    public function test_a_reply_requires_a_body()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        $thread = Thread::factory()->create();
+        $reply = Reply::factory()->make(['body' => null]);
+
+        $this->post($thread->path() . '/replies',$reply->toArray())
+            ->assertSessionHasErrors('body');
     }
 }

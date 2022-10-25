@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
 use App\Models\Reply;
 use App\Models\Thread;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -40,5 +41,17 @@ class ThreadsTest extends TestCase
         $this->get($this->thread->path())
             ->assertSee($reply->body);
 
+    }
+
+    public function test_a_user_can_filter_threads_according_to_category()
+    {
+        $category = category::factory()->create();
+
+        $threadInCategory = Thread::factory()->create(['category_id' => $category->id]);
+        $threadNotInCategory = Thread::factory()->create();
+
+        $this->get('/threads/' . $category->slug)
+            ->assertSee($threadInCategory->title)
+            ->assertDontSee($threadNotInCategory->title);
     }
 }
