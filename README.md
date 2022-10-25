@@ -9,35 +9,34 @@
 
 ## Tests progress..,
 
-   PASS  Tests\Unit\ReplyTest
+     PASS  Tests\Unit\ReplyTest<br/>
+  ✓ a reply has an owner<br/>
 
-  ✓ a reply has an owner
-
-   PASS  Tests\Unit\ThreadTest
-   
+   PASS  Tests\Unit\ThreadTest<br/>
   ✓ a thread has replies<br/>
   ✓ a thread has a creator<br/>
   ✓ a thread can add a reply<br/>
   ✓ a thread belongs to a category<br/>
   ✓ a thread can make a string path<br/>
 
-   PASS  Tests\Feature\CreateThreadsTest
-   
+   PASS  Tests\Feature\CreateThreadsTest<br/>
   ✓ guests cant create threads<br/>
   ✓ guests cant see the create thread page<br/>
   ✓ an authenticated user can create new forum threads<br/>
+  ✓ a thread requires a title<br/>
+  ✓ a thread requires a body<br/>
+  ✓ a thread requires a category id<br/>
 
-   PASS  Tests\Feature\ParticipateInForumTest
-   
-  ✓ un authenticated user cant participate in forum<br/>
-  ✓ an authenticated user can participate in forum<br/>
+   PASS  Tests\Feature\ParticipateInForumTest<br/>
+  ✓ un authenticated user cant reply in forum<br/>
+  ✓ an authenticated user can reply in forum<br/>
+  ✓ a reply requires a body
 
-   PASS  Tests\Feature\ThreadsTest
-   
+   PASS  Tests\Feature\ThreadsTest<br/>
   ✓ a user can view threads<br/>
   ✓ a user can view a single thread<br/>
   ✓ a user can view a reply associated with a thread<br/>
-
+  ✓ a user can filter threads according to category<br/>
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
