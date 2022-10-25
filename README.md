@@ -9,7 +9,7 @@
 
 ## Tests progress..,
 
-     PASS  Tests\Unit\ReplyTest<br/>
+   PASS  Tests\Unit\ReplyTest<br/>
   ✓ a reply has an owner<br/>
 
    PASS  Tests\Unit\ThreadTest<br/>
